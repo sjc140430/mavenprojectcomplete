@@ -1,6 +1,8 @@
 package empSubmit;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -21,6 +23,15 @@ public class empSubmitController {
 		write.close();
 	}
 	
+	@RequestMapping("/retrieve")
+	public String empRetrieve(@RequestParam long empId, String name) throws IOException {
+		Employee add = new Employee(empId, name);
+		final String FILE_NAME = "/main/java/resources/employeeStore.txt";
+		
+		BufferedReader read = new BufferedReader(new FileReader(FILE_NAME));
+		return read.readLine();
+		
+	}
 }
 
 /*
