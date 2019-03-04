@@ -2,10 +2,12 @@ package hello;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +28,8 @@ public class empSubmitController {
 	@RequestMapping("/retrieve")
 	public String empRetrieve() throws IOException {
 
-		final String FILE_NAME = "/main/java/resources/employeeStore.txt";
+		final String FILE_NAME = new ClassPathResource("employeeStore.txt").getFilename();
+		//String file = new ClassPathResource("employeeStore.txt").getFilename();
 		
 		BufferedReader read = new BufferedReader(new FileReader(FILE_NAME));
 		return read.readLine();
