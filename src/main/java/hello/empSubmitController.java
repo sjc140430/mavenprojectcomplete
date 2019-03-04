@@ -24,8 +24,8 @@ public class empSubmitController {
 	}
 	
 	@RequestMapping("/retrieve")
-	public String empRetrieve(@RequestParam long empId, String name) throws IOException {
-		Employee add = new Employee(empId, name);
+	public String empRetrieve() throws IOException {
+
 		final String FILE_NAME = "/main/java/resources/employeeStore.txt";
 		
 		BufferedReader read = new BufferedReader(new FileReader(FILE_NAME));
